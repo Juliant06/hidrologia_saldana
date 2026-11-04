@@ -1,7 +1,10 @@
 from pysheds.grid import Grid
 from pysheds.view import Raster, ViewFinder
-import numpy as np
 import xarray as xr
+
+import numpy as np
+if not hasattr(np, "in1d"):
+    np.in1d = np.isin
 
 def delimitacion_cuenca(
         dem:xr.DataArray, 
